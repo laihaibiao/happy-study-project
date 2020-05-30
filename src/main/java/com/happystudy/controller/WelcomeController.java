@@ -19,7 +19,7 @@ public class WelcomeController {
 	@ResponseBody
 	public JSONObject getMenu() {
 		System.out.println("=========");
-		System.out.println("======lhb1234");
+		System.out.println("======ywh");
 		return null;
 	}
 }
