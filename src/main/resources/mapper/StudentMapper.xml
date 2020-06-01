@@ -2,8 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.happystudy.dao.StudentMapper">
 
-    <select id="queryStudent" resultType="">
-
+    <select id="queryStudent" parameterType="java.util.Map" resultType="com.happystudy.model.Student">
+          select * from t_student
     </select>
 
+    <select id="queryStudentCount" parameterType="java.util.Map" resultType="Integer">
+        select count(id) from t_student
+        <where>
+            <if test="param.s_name!=null">
+                and s_name=${param.s_name}
+            </if>
+
+            <if test="param.s_sex!=null">
+                and s_clazz_fk=${param.s_sex}
+            </if>
+
+            <if test="param.s_birthday!=null">
+                and s_clazz_fk=${s_birthday}
+            </if>
+
+            <if test="param.s_clazz_fk!=null">
+                and s_clazz_fk=${param.s_clazz_fk}
+            </if>
+
+            <if test="param.s_clazz_fk!=null">
+                and s_clazz_fk=${param.s_clazz_fk}
+            </if>
+
+            <if test="param.s_clazz_fk!=null">
+                and s_clazz_fk=${param.s_clazz_fk}
+            </if>
+        </where>
+    </select>
 </mapper>

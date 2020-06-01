@@ -8,4 +8,5 @@ import java.util.Map;
 
 public interface StudentMapper {
     public List<Student> queryStudent (String keyword,String orderBy,String orderWay,Integer pageOffset,Integer pageSize);
+
 }

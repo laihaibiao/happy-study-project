@@ -3,7 +3,6 @@ package com.happystudy.controller;
 import cn.hutool.json.JSONObject;
 import com.happystudy.constants.Constants;
 import com.happystudy.service.StudentService;
-import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,8 +46,14 @@ public class StudentController {
 
     //查询学生人数（可以根据条件查询，默认为总人数）
     @ResponseBody
-    public JSONObject queryStudentCount(String keyword){
-        return this.studentService.queryStudentCount(keyword);
+    public JSONObject queryStudentCount(Map<String,Object> param){
+        if (param.get("keyword")==null)
+        {
+            param.put("keyword","");
+        }
+        Map<String,Object> param2 =new HashMap<>();
+        param2.put("s_sex","1");
+        return this.studentService.queryStudentCount(param2);
     }
 
     //添加学生
